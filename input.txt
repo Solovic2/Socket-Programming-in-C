@@ -1,0 +1,5 @@
+POST / index4.html HTTP/1.1
+GET / index5.html HTTP/1.1
+GET / index3.html HTTP/1.1
+POST / index3.html HTTP/1.1
+GET / index3.html HTTP/1.1
