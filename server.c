@@ -34,7 +34,9 @@ int countReaders = 0;		// counter for readers
 int count_file = 0;			// counter for files in server
 
 struct files server_files[10];
-
+/*
+	Function to send the respone to client
+*/
 void* readRequestWithFileFromServer(void* request)
 {
     // Lock the semaphore
@@ -76,7 +78,11 @@ void writeFileToServer(char *filename,char *body){
 	fclose(file);
 }
 
-// Function to upload file .
+/* 
+	Function to upload the file .
+	** Thread function to send the filename and recieve the body to write it in local machine 
+	** save the filename , body in struct array 
+*/
 void* uploadFileToServer(void* request)
 {
 
@@ -106,7 +112,9 @@ void* uploadFileToServer(void* request)
 	// exit
 	pthread_exit(NULL);
 }
-// function to check if file exists of not in files structure
+/* 
+	 function to check if file exists or not in files structure in server 
+*/
 int checkIfExistFile(struct files myfiles[10],char *filename){
 	if(strcmp(filename,"") == 0) return -1;
 	for(int i=0; i<10 ;i++){
